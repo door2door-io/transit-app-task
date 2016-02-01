@@ -1,39 +1,41 @@
 ##Mobile App Technical Assignment
 
-**Objective**
 
-To build a simplified version of a transit app.
+Dependencies
+---
 
-There is no need to implement routing logic or to connect to a real backend service. The available routes should be extracted from the static JSON file in this repo
 
-**What are we looking for?**
+I used set of libraries in the app:
 
-The task has been deliberately left open to give you an opportunity to demonstrate...
+- Facebook Stetho - for DB monitoring and view tree analysis
+- GooglePlayServices - for the map and location service
+- Retrofit2 - as one of the best HTTP client
+- Dagger2 - for dependency injection
+- JodaTime - for easier DateTime manipulation
+- Glide and AndroidSVG for loading of SVG images
+- JUnit4/Espresso - for testing
+- Hamcrest - for easier and readabler tests
+- Robolectric - for faster Unit testing
+- MockServer - For mocking server requests
+- Mockito - For mocking
+- For online JSON mocking, I used http://www.mocky.io/
 
-­- best practices you adhere to 
 
-­- common libraries you might use 
+---
 
-­- ux considerations 
 
-­- platform specific patterns 
+Packages
+---
+- **com.eutechpro.allytransitapp.data** - contains all classes responsibile for fetching data from the web and accesing them.
 
-Feel free to take inspiration from the current allryder app or create your own UI.
+- **com.eutechpro.allytransitapp.data.rest.retrofit** - contains Retrofit2 implementation and supporting classs
 
-**What to submit?**
+- **com.eutechpro.allytransitapp.data.model** - contains data models classes. The main model class is Route, and all other model classes are supporting classes. 
 
-Please submit your solutions in a form of publicly accessible git repository. We will clone it and evaluate your work so you should make sure the project builds right after cloning. If you use other third party libraries, mention a way how to install it in a README file.
+- **com.eutechpro.allytransitapp.di** - contains Dagger2 oriented classes for dependency injection
 
-Alternatively, you can submit an zip archive of your project.
+- **com.eutechpro.allytransitapp.map** - containes MapActivity and supporting classes such as _RouteDrawingI_ and it's implementation.
 
-**Advice**
+- **com.eutechpro.allytransitapp.search** - containser SearchRouteActivity and supporting classes
 
-­Do not worry about fancy visuals, having a functional application is more important 
-
-­Write the code in small increments, start with essential functionality and improve upon it. The goal is not to build as many features as possible, but rather to show good coding practices. However feel free to write what and how you would build given more time. 
-­Good development practices should be observed. The code should be written as if it was going to be used in production and read by other developers 
-­Polyline are in the form of [googles encoded polyline algorithm format] (https://developers.google.com/maps/documentation/utilities/polylinealgorithm?hl=en)
-
-**Final Considerations**
-
-Take your time, the quality is more important than the speed. And let us know if you are not able to send a solution in the next days.
+- **com.eutechpro.allytransitapp.svg** - containser classes needed for helping Glide loading SVG resources.
