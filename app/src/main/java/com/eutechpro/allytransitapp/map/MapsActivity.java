@@ -19,7 +19,7 @@ import javax.inject.Inject;
 public class MapsActivity extends BaseActivity {
     private GoogleMap map;
     @Inject
-    public RouteDrawingI routeDrawingManager;
+    public RouteDrawer routeDrawingManager;
     private FloatingActionButton fab;
 
     @Override

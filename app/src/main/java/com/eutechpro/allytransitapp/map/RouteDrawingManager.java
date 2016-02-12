@@ -18,7 +18,7 @@ import com.google.maps.android.ui.IconGenerator;
 
 import java.util.List;
 
-public class RouteDrawingManager implements RouteDrawingI {
+public class RouteDrawingManager implements RouteDrawer {
     public static final int POLYLINE_WIDTH = 10;
 
     public static final int PARKING_POLYLINE_COLOR = Color.WHITE;
@@ -80,6 +80,7 @@ public class RouteDrawingManager implements RouteDrawingI {
             throw new IllegalStateException("You must initialise GoogleMap first");
         }
         //Get all segments
+        @SuppressWarnings("unchecked")
         List<RouteSegment> segments = route.getSegments();
 
         //Place starting marker on the map

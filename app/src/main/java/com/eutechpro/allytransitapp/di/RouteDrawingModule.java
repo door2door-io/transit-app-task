@@ -2,7 +2,7 @@ package com.eutechpro.allytransitapp.di;
 
 import android.content.Context;
 
-import com.eutechpro.allytransitapp.map.RouteDrawingI;
+import com.eutechpro.allytransitapp.map.RouteDrawer;
 import com.eutechpro.allytransitapp.map.RouteDrawingManager;
 
 import javax.inject.Singleton;
@@ -20,7 +20,7 @@ public class RouteDrawingModule {
 
     @Singleton
     @Provides
-    public RouteDrawingI provideRouteDrawingManager(){
+    public RouteDrawer provideRouteDrawingManager(){
         return new RouteDrawingManager(context);
     }
 }

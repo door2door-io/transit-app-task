@@ -1,7 +1,7 @@
 package com.eutechpro.allytransitapp;
 
 import com.eutechpro.allytransitapp.data.model.Route;
-import com.eutechpro.allytransitapp.map.RouteDrawingI;
+import com.eutechpro.allytransitapp.map.RouteDrawer;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,13 +25,13 @@ public class RouteDrawingManagerTest {
 
     @Test(expected = IllegalStateException.class)
     public void testClearingMapWithoutMapSet() throws Exception {
-        RouteDrawingI routeDrawing = new com.eutechpro.allytransitapp.map.RouteDrawingManager(activity);
+        RouteDrawer routeDrawing = new com.eutechpro.allytransitapp.map.RouteDrawingManager(activity);
         routeDrawing.clearMap();
     }
 
     @Test(expected = IllegalStateException.class)
     public void testDrawingMapWithoutMapSet() throws Exception {
-        RouteDrawingI routeDrawing = new com.eutechpro.allytransitapp.map.RouteDrawingManager(activity);
+        RouteDrawer routeDrawing = new com.eutechpro.allytransitapp.map.RouteDrawingManager(activity);
         Route route = Mockito.mock(Route.class);
         routeDrawing.drawRouteOnMap(route);
     }
