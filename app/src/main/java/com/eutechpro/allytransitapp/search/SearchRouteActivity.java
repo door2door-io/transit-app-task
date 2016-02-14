@@ -19,7 +19,6 @@ import android.widget.TextView;
 import com.eutechpro.allytransitapp.AllyApplication;
 import com.eutechpro.allytransitapp.BaseActivity;
 import com.eutechpro.allytransitapp.R;
-import com.eutechpro.allytransitapp.data.DataCallback;
 import com.eutechpro.allytransitapp.data.DataError;
 import com.eutechpro.allytransitapp.data.RetrofitRoutesManager;
 import com.eutechpro.allytransitapp.data.RoutesManager;
@@ -30,10 +29,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-//import com.facebook.drawee.view.SimpleDraweeView;
-//import com.facebook.imagepipeline.core.ImagePipelineConfig;
-
-public class SearchRouteActivity extends BaseActivity {
+public class SearchRouteActivity extends BaseActivity implements SearchRouteView {
     public static final int ROUTE_SEARCH_REQUEST_CODE = 1111;
     @Inject
     public RoutesManager routesManager;
@@ -43,6 +39,7 @@ public class SearchRouteActivity extends BaseActivity {
     private EditText from;
     private OnClickListener searchListener;
     private RoutesListFragment routesListFragment;
+    private SearchRouteActivityPresenter presenter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,12 +80,14 @@ public class SearchRouteActivity extends BaseActivity {
         };
 
         search.setOnClickListener(searchListener);
+        presenter = new SearchRouteActivityPresenter(this);
+        presenter.addDataRepository(routesManager);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        routesManager.cancelGettingAllRoutes();
+        presenter.stopEverything();
         loadingScreen.setVisibility(View.GONE);
     }
     @Override
@@ -100,6 +99,7 @@ public class SearchRouteActivity extends BaseActivity {
         }
     }
     private void performSearch(final View v) {
+        dismissKeyboard(v.getWindowToken());
         if(from.getText().toString().isEmpty()){
             Snackbar.make(v, "You have to insert starting location", Snackbar.LENGTH_LONG).show();
             return;
@@ -108,32 +108,20 @@ public class SearchRouteActivity extends BaseActivity {
             Snackbar.make(v, "You have to insert destination", Snackbar.LENGTH_LONG).show();
             return;
         }
-        routesManager.getAllRoutes(new DataCallback<List<Route>>() {
-            @Override
-            public void beforeStart() {
-                dismissKeyboard(v.getWindowToken());
-                loadingScreen.setVisibility(View.VISIBLE);
-            }
+        showLoadingViews();
+        presenter.performSearch();
+    }
 
-            @Override
-            public void onResponse(List<Route> fetchedRoutes) {
-                routesListFragment.setContent(fetchedRoutes);
-                loadingScreen.setVisibility(View.INVISIBLE);
-            }
+    private void hideLoadingViews() {
+        loadingScreen.setVisibility(View.INVISIBLE);
+    }
 
-            @Override
-            public void onFailure(DataError dataError) {
-                loadingScreen.setVisibility(View.INVISIBLE);
-                Snackbar snackbar = Snackbar.make(v, "Operation failed. ", Snackbar.LENGTH_LONG)
-                                            .setAction("Retry?", searchListener);
-                snackbar.show();
-            }
-        });
+    private void showLoadingViews() {
+        loadingScreen.setVisibility(View.VISIBLE);
     }
 
     @Override
     protected void getViewReferences() {
-        //        SimpleDraweeView image = (SimpleDraweeView)findViewById(R.id.route_provider);
         from = (EditText) findViewById(R.id.from);
         to = (EditText) findViewById(R.id.to);
         search = (FloatingActionButton) findViewById(R.id.search_button);
@@ -156,4 +144,25 @@ public class SearchRouteActivity extends BaseActivity {
         }
     }
 
+
+    //region SearchRouteView implementation
+    @Override
+    public void searchSuccessfull(List<Route> fetchedRoutes) {
+        routesListFragment.setContent(fetchedRoutes);
+        hideLoadingViews();
+    }
+
+    @Override
+    public void searchFailed(DataError dataError) {
+        Snackbar.make(null, "Operation failed. ", Snackbar.LENGTH_LONG).setAction("Retry?", searchListener).show();
+        hideLoadingViews();
+    }
+
+    @Override
+    public void routeSelected(Route selectedRoute) {
+        RetrofitRoutesManager.setRouteAsArgument(selectedRoute);
+        setResult(Activity.RESULT_OK);
+        finish();
+    }
+    //endregion
 }
