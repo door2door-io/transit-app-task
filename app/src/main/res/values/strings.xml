@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">AllyTransitApp</string>
+    <string name="title_activity_maps">Map</string>
+
+    <!-- Search Activity-->
+    <string name="search_fragment_button">Search</string>
+    <string name="search_fragment_hint_to">To...</string>
+    <string name="search_fragment_hint_from">From...</string>
+    <string name="search_list_item_duration">Duration: %d min</string>
+    <string name="search_list_item_price">Price: %s €</string>
+
+    <!-- Map Activity -->
+    <string name="map_marker_finish">You arrived to destination</string>
+    <string name="map_marker_start">You are starting jurney</string>
+    <string name="map_marker_mode_walking">Take a short walk</string>
+    <string name="map_marker_mode_subway">Take subway %s</string>
+    <string name="map_marker_mode_setup">Setup your vehicle</string>
+    <string name="map_marker_mode_driving">Drive for some time</string>
+    <string name="map_marker_mode_change">Change transport</string>
+    <string name="map_marker_mode_cycling">Cycle for some time</string>
+    <string name="map_marker_mode_parking">Park your vehicle</string>
+    <string name="map_marker_mode_bus">Take bus %s</string>
+</resources>
