@@ -22,7 +22,7 @@ Feel free to take inspiration from the current allryder app or create your own U
 
 **What to submit?**
 
-Please submit your solutions in a form of publicly accessible git repository. We will clone it and evaluate your work so you should make sure the project builds right after cloning. If you use other third party libraries, mention a way how to install it in a README file.
+Please submit your solutions in a form of publicly accessible git repository with a full git history. We will clone it and evaluate your work so you should make sure the project builds right after cloning. If you use other third party libraries, mention a way how to install it in a README file.
 
 Alternatively, you can submit an zip archive of your project.
 
