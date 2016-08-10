@@ -18,17 +18,13 @@ The task has been deliberately left open to give you an opportunity to demonstra
 
 ­- platform specific patterns 
 
-Feel free to take inspiration from the current allryder app or create your own UI.
+Feel free to take inspiration from the current ally app or create your own UI.
 
 **What to submit?**
 
-Please submit your solutions in a form of publicly accessible git repository. We will clone it and evaluate your work so you should make sure the project builds right after cloning. If you use other third party libraries, mention a way how to install it in a README file.
-
-Alternatively, you can submit an zip archive of your project.
+Please submit your solutions in a form of publicly accessible git repository. We will clone it and evaluate your work so you should make sure the project builds right after cloning.
 
 **Advice**
-
-­Do not worry about fancy visuals, having a functional application is more important 
 
 ­Write the code in small increments, start with essential functionality and improve upon it. The goal is not to build as many features as possible, but rather to show good coding practices. However feel free to write what and how you would build given more time. 
 ­Good development practices should be observed. The code should be written as if it was going to be used in production and read by other developers 
