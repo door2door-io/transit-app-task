@@ -18,7 +18,7 @@ The task has been deliberately left open to give you an opportunity to demonstra
 
 ­- platform specific patterns 
 
-Feel free to take inspiration from the current ally app or create your own UI.
+Feel free to take inspiration from the current Door2Door apps or create your own UI.
 
 **What to submit?**
 
