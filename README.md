@@ -1,4 +1,4 @@
-##Mobile App Technical Assignment
+##Mobile developer coding challenge
 
 **Objective**
 
@@ -8,15 +8,24 @@ There is no need to implement routing logic or to connect to a real backend serv
 
 **What are we looking for?**
 
+We would like you to build a UI that includes:
+
+1. A comprehensive overview of all the routes in a single page.
+
+2. Navigation to a detailed view of a single route, where more information is made available.
+
+
 The task has been deliberately left open to give you an opportunity to demonstrate...
 
-­- best practices you adhere to 
+­- Best practices you adhere to.
 
-­- common libraries you might use 
+­- Common libraries you might use.
 
-­- ux considerations 
+­- UX considerations.
 
-­- platform specific patterns 
+­- Platform specific patterns (MVP, MVVM,DI... ).
+
+- Unit and/or integration tests.
 
 Feel free to take inspiration from the current Door2Door apps or create your own UI.
 
