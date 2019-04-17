@@ -10,9 +10,9 @@ There is no need to implement routing logic or to connect to a real backend serv
 
 We would like you to build a UI that includes:
 
-1. A comprehensive overview of all the routes in a single page.
+­- A comprehensive overview of all the routes in a single page.
 
-2. Navigation to a detailed view of a single route, where more information is made available.
+­- Navigation to a detailed view of a single route, where more information is made available.
 
 
 The task has been deliberately left open to give you an opportunity to demonstrate...
@@ -25,7 +25,7 @@ The task has been deliberately left open to give you an opportunity to demonstra
 
 ­- Platform specific patterns (MVP, MVVM,DI... ).
 
-- Unit and/or integration tests.
+­- Unit and/or integration tests.
 
 Feel free to take inspiration from the current Door2Door apps or create your own UI.
 
